@@ -1,0 +1,175 @@
+{
+  "main": {
+    "id": "ac525fedc4e120e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "4d6fd484db3ce0e5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dbbe08fbb5ddc0e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "vector functions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "vector functions"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "167a779b1248aee1",
+    "type": "split",
+    "children": [
+      {
+        "id": "abcf4ddd340569a2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "626984f108e90699",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "99935e9b9351ab57",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "557eca43b53d6223",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0008bafd663af4ab",
+    "type": "split",
+    "children": [
+      {
+        "id": "5dd2c592cc7ef311",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f6a6193466e687c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "vector functions.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for vector functions"
+            }
+          },
+          {
+            "id": "709a6c65b89e20ff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "vector functions.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from vector functions"
+            }
+          },
+          {
+            "id": "1553bb27d8805bbd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "65efedaa4130581a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "vector functions.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of vector functions"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "dbbe08fbb5ddc0e6",
+  "lastOpenFiles": [
+    "vectors/go.mod",
+    "terminalFunctions/go.sum",
+    "terminalFunctions/go.mod",
+    "go.sum",
+    "terminalFunctions/window.go",
+    "terminalFunctions",
+    "vectors/windows"
+  ]
+}
