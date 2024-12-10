@@ -6,11 +6,11 @@ import (
 )
 
 type Vec3 struct {
-	X, Y, Z float32
+	X, Y, Z float64
 }
 
 // InitValueVec3 initializes all components to the same value
-func InitValueVec3(val float32) *Vec3 {
+func InitValueVec3(val float64) *Vec3 {
 	return &Vec3{
 		X: val,
 		Y: val,
@@ -18,17 +18,8 @@ func InitValueVec3(val float32) *Vec3 {
 	}
 }
 
-// InitValueVec creates a Vec3 from a value and a Vec2
-func InitValueVec(val float32, v2 *Vec2) *Vec3 {
-	return &Vec3{
-		X: val,
-		Y: v2.X,
-		Z: v2.Y,
-	}
-}
-
 // InitValuesVec3 initializes vector with specific X, Y, and Z values
-func InitValuesVec3(X, Y, Z float32) *Vec3 {
+func InitValuesVec3(X, Y, Z float64) *Vec3 {
 	return &Vec3{
 		X: X,
 		Y: Y,
@@ -83,6 +74,6 @@ func (v *Vec3) Div(other *Vec3) *Vec3 {
 }
 
 // Len3 calculates the length of a 3D vector
-func Len3(v *Vec3) float32 {
-	return float32(math.Sqrt(float64(v.X*v.X + v.Y*v.Y + v.Z*v.Z)))
+func Len3(v *Vec3) float64 {
+	return math.Sqrt(float64(v.X*v.X + v.Y*v.Y + v.Z*v.Z))
 }

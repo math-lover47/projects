@@ -4,11 +4,11 @@ import (
 	"math"
 )
 
-func Clamp(val, min, max float32) float32 {
-	return float32(Max32(Min32(val, max), min))
+func Clamp(val, min, max float64) float64 {
+	return math.Max(math.Min(val, max), min)
 }
 
-func SignVal(n float32) float32 {
+func SignVal(n float64) float64 {
 	if n > 0 {
 		return 1
 	}
@@ -18,7 +18,7 @@ func SignVal(n float32) float32 {
 	return 0
 }
 
-func StepVal(edge, x float32) float32 {
+func StepVal(edge, x float64) float64 {
 	if x > edge {
 		return 1
 	}
@@ -37,15 +37,15 @@ func Norm(v *Vec3) *Vec3 {
 	)
 }
 
-func Dot(v1, v2 *Vec3) float32 {
+func Dot(v1, v2 *Vec3) float64 {
 	return v1.X*v2.X + v1.Y*v2.Y + v1.Z*v2.Z
 }
 
 func Abs(v *Vec3) *Vec3 {
 	return InitValuesVec3(
-		float32(math.Abs(float64(v.X))),
-		float32(math.Abs(float64(v.Y))),
-		float32(math.Abs(float64(v.Z))),
+		math.Abs(v.X),
+		math.Abs(v.Y),
+		math.Abs(v.Z),
 	)
 }
 
@@ -76,33 +76,33 @@ func Reflect(rayDir, normal *Vec3) *Vec3 {
 
 func RotateX(v1 *Vec3, angle float64) *Vec3 {
 	v2 := InitValuesVec3(v1.X, v1.Y, v1.Z)
-	v2.Z = v1.Z*float32(math.Cos(angle)) - v1.Y*float32(math.Sin(angle))
-	v2.Y = v1.Z*float32(math.Sin(angle)) + v1.Y*float32(math.Cos(angle))
+	v2.Z = v1.Z*math.Cos(angle) - v1.Y*math.Sin(angle)
+	v2.Y = v1.Z*math.Sin(angle) + v1.Y*math.Cos(angle)
 	return v2
 }
 
 func RotateY(v1 *Vec3, angle float64) *Vec3 {
 	v2 := InitValuesVec3(v1.X, v1.Y, v1.Z)
-	v2.X = v1.X*float32(math.Cos(angle)) - v1.Z*float32(math.Sin(angle))
-	v2.Z = v1.X*float32(math.Sin(angle)) + v1.Z*float32(math.Cos(angle))
+	v2.X = v1.X*math.Cos(angle) - v1.Z*math.Sin(angle)
+	v2.Z = v1.X*math.Sin(angle) + v1.Z*math.Cos(angle)
 	return v2
 }
 
 func RotateZ(v1 *Vec3, angle float64) *Vec3 {
 	v2 := InitValuesVec3(v1.X, v1.Y, v1.Z)
-	v2.X = v1.X*float32(math.Cos(angle)) - v1.Y*float32(math.Sin(angle))
-	v2.Y = v1.X*float32(math.Sin(angle)) + v1.Y*float32(math.Cos(angle))
+	v2.X = v1.X*math.Cos(angle) - v1.Y*math.Sin(angle)
+	v2.Y = v1.X*math.Sin(angle) + v1.Y*math.Cos(angle)
 	return v2
 }
 
-func Sphere(rayOrigin, rayDir *Vec3, radius float32) *Vec2 {
+func Sphere(rayOrigin, rayDir *Vec3, radius float64) *Vec2 {
 	b := Dot(rayOrigin, rayDir)
 	c := Dot(rayOrigin, rayOrigin) - radius*radius
 	h := b*b - c
-	if h < 0 {
+	if h < 0.0 {
 		return InitValueVec2(-1)
 	}
-	h = float32(math.Sqrt(float64(h)))
+	h = math.Sqrt(float64(h))
 	return InitValuesVec2(-b-h, -b+h)
 }
 
@@ -112,8 +112,8 @@ func Box(rayOrigin, rayDir, boxSize *Vec3, outNormal **Vec3) *Vec2 {
 	k := Abs(m).Mult(boxSize)
 	t1 := n.OppositeSign().Minus(k)
 	t2 := n.OppositeSign().Plus(k)
-	tN := Max32(Max32(t1.X, t1.Y), t1.Z)
-	tF := Min32(Min32(t2.X, t2.Y), t2.Z)
+	tN := math.Max(math.Max(t1.X, t1.Y), t1.Z)
+	tF := math.Min(math.Min(t2.X, t2.Y), t2.Z)
 	if tN > tF || tF < 0 {
 		return InitValueVec2(-1)
 	}
@@ -123,19 +123,11 @@ func Box(rayOrigin, rayDir, boxSize *Vec3, outNormal **Vec3) *Vec2 {
 	return InitValuesVec2(tN, tF)
 }
 
-func Plane(rayOrigin, rayDir, p *Vec3, w float32) float32 {
+func Plane(rayOrigin, rayDir, p *Vec3, w float64) float64 {
 	return -((Dot(rayOrigin, p) + w) / Dot(rayDir, p))
 }
 
-func Max32(a, b float32) float32 {
-	return float32(math.Max(float64(a), float64(b)))
-}
-
-func Min32(a, b float32) float32 {
-	return float32(math.Min(float64(a), float64(b)))
-}
-
-func GetDist(p *Vec3, t float32) float32 {
+func GetDist(p *Vec3, t float64) float64 {
 	q := InitValuesVec2(Len2(InitValuesVec2(p.X, p.Y))-1.0, p.Z)
 	return Len2(q) - 0.5
 }

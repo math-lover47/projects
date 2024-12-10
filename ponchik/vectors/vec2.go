@@ -6,11 +6,11 @@ import (
 )
 
 type Vec2 struct {
-	X, Y float32
+	X, Y float64
 }
 
 // InitValueVec2 initializes all components to the same value
-func InitValueVec2(val float32) *Vec2 {
+func InitValueVec2(val float64) *Vec2 {
 	return &Vec2{
 		X: val,
 		Y: val,
@@ -18,7 +18,7 @@ func InitValueVec2(val float32) *Vec2 {
 }
 
 // InitValuesVec2 initializes vector with specific X and Y values
-func InitValuesVec2(X, Y float32) *Vec2 {
+func InitValuesVec2(X, Y float64) *Vec2 {
 	return &Vec2{
 		X: X,
 		Y: Y,
@@ -63,6 +63,6 @@ func (v *Vec2) Div(other *Vec2) *Vec2 {
 }
 
 // Len2 calculates the length of a 2D vector
-func Len2(v *Vec2) float32 {
-	return float32(math.Sqrt(float64(v.X*v.X + v.Y*v.Y)))
+func Len2(v *Vec2) float64 {
+	return math.Sqrt(float64(v.X*v.X + v.Y*v.Y))
 }
