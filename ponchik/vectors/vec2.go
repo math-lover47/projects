@@ -5,62 +5,64 @@ import (
 	"math"
 )
 
-type vec2 struct {
-	x, y float32
+type Vec2 struct {
+	X, Y float32
 }
 
-// Initialize all components to the same value
-func initValueVec2(val float32) *vec2 {
-	return &vec2{
-		x: val,
-		y: val,
+// InitValueVec2 initializes all components to the same value
+func InitValueVec2(val float32) *Vec2 {
+	return &Vec2{
+		X: val,
+		Y: val,
 	}
 }
 
-func initValuesVec2(x_, y_ float32) *vec2 {
-	return &vec2{
-		x: x_,
-		y: y_,
+// InitValuesVec2 initializes vector with specific X and Y values
+func InitValuesVec2(X, Y float32) *Vec2 {
+	return &Vec2{
+		X: X,
+		Y: Y,
 	}
 }
 
-// Add two vectors (returns a new vector)
-func (v *vec2) Plus(other *vec2) *vec2 {
-	return &vec2{
-		x: v.x + other.x,
-		y: v.y + other.y,
+// Plus adds two vectors (returns a new vector)
+func (v *Vec2) Plus(other *Vec2) *Vec2 {
+	return &Vec2{
+		X: v.X + other.X,
+		Y: v.Y + other.Y,
 	}
 }
 
-// Subtract two vectors (returns a new vector)
-func (v *vec2) Minus(other *vec2) *vec2 {
-	return &vec2{
-		x: v.x - other.x,
-		y: v.y - other.y,
+// Minus subtracts two vectors (returns a new vector)
+func (v *Vec2) Minus(other *Vec2) *Vec2 {
+	return &Vec2{
+		X: v.X - other.X,
+		Y: v.Y - other.Y,
 	}
 }
 
-// Multiply two vectors (returns a new vector)
-func (v *vec2) Mult(other *vec2) *vec2 {
-	return &vec2{
-		x: v.x * other.x,
-		y: v.y * other.y,
+// Mult multiplies two vectors (returns a new vector)
+func (v *Vec2) Mult(other *Vec2) *Vec2 {
+	return &Vec2{
+		X: v.X * other.X,
+		Y: v.Y * other.Y,
 	}
 }
 
-// Divide two vectors (returns a new vector)
-func (v *vec2) Div(other *vec2) *vec2 {
+// Div divides two vectors (returns a new vector)
+func (v *Vec2) Div(other *Vec2) *Vec2 {
 	// Check for division by zero
-	if other.x == 0 || other.y == 0 {
+	if other.X == 0 || other.Y == 0 {
 		fmt.Println("Error: Division by zero in vector components")
-		return &vec2{} // Return a zero vector as fallback
+		return &Vec2{} // Return a zero vector as fallback
 	}
-	return &vec2{
-		x: v.x / other.x,
-		y: v.y / other.y,
+	return &Vec2{
+		X: v.X / other.X,
+		Y: v.Y / other.Y,
 	}
 }
 
-func Len2(v *vec2) float32 {
-	return float32(math.Sqrt(float64(v.x*v.x + v.y*v.y)))
+// Len2 calculates the length of a 2D vector
+func Len2(v *Vec2) float32 {
+	return float32(math.Sqrt(float64(v.X*v.X + v.Y*v.Y)))
 }

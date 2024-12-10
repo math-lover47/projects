@@ -5,80 +5,84 @@ import (
 	"math"
 )
 
-type vec3 struct {
-	x, y, z float32
+type Vec3 struct {
+	X, Y, Z float32
 }
 
-// Initialize all components to the same value
-func initValueVec3(val float32) *vec3 {
-	return &vec3{
-		x: val,
-		y: val,
-		z: val,
+// InitValueVec3 initializes all components to the same value
+func InitValueVec3(val float32) *Vec3 {
+	return &Vec3{
+		X: val,
+		Y: val,
+		Z: val,
 	}
 }
 
-func initValueVec(val float32, v2 *vec2) *vec3 {
-	return &vec3{
-		x: val,
-		y: v2.x,
-		z: v2.y,
+// InitValueVec creates a Vec3 from a value and a Vec2
+func InitValueVec(val float32, v2 *Vec2) *Vec3 {
+	return &Vec3{
+		X: val,
+		Y: v2.X,
+		Z: v2.Y,
 	}
 }
 
-func initValuesVec3(x_, y_, z_ float32) *vec3 {
-	return &vec3{
-		x: x_,
-		y: y_,
-		z: z_,
+// InitValuesVec3 initializes vector with specific X, Y, and Z values
+func InitValuesVec3(X, Y, Z float32) *Vec3 {
+	return &Vec3{
+		X: X,
+		Y: Y,
+		Z: Z,
 	}
 }
 
-func (v *vec3) OppositeSign() *vec3 {
-	return &vec3{x: -v.x, y: -v.y, z: -v.z}
+// OppositeSign returns a vector with opposite signs
+func (v *Vec3) OppositeSign() *Vec3 {
+	return &Vec3{X: -v.X, Y: -v.Y, Z: -v.Z}
 }
 
-// Add two vectors (returns a new vector)
-func (v *vec3) Plus(other *vec3) *vec3 {
-	return &vec3{
-		x: v.x + other.x,
-		y: v.y + other.y,
-		z: v.z + other.z,
+// Plus adds two vectors (returns a new vector)
+func (v *Vec3) Plus(other *Vec3) *Vec3 {
+	return &Vec3{
+		X: v.X + other.X,
+		Y: v.Y + other.Y,
+		Z: v.Z + other.Z,
 	}
 }
 
-// Subtract two vectors (returns a new vector)
-func (v *vec3) Minus(other *vec3) *vec3 {
-	return &vec3{
-		x: v.x - other.x,
-		y: v.y - other.y,
-		z: v.z - other.z,
+// Minus subtracts two vectors (returns a new vector)
+func (v *Vec3) Minus(other *Vec3) *Vec3 {
+	return &Vec3{
+		X: v.X - other.X,
+		Y: v.Y - other.Y,
+		Z: v.Z - other.Z,
 	}
 }
 
-// Multiply two vectors (returns a new vector)
-func (v *vec3) Mult(other *vec3) *vec3 {
-	return &vec3{
-		x: v.x * other.x,
-		y: v.y * other.y,
-		z: v.z * other.z,
+// Mult multiplies two vectors (returns a new vector)
+func (v *Vec3) Mult(other *Vec3) *Vec3 {
+	return &Vec3{
+		X: v.X * other.X,
+		Y: v.Y * other.Y,
+		Z: v.Z * other.Z,
 	}
 }
 
-// Divide two vectors (returns a new vector)
-func (v *vec3) Div(other *vec3) *vec3 {
+// Div divides two vectors (returns a new vector)
+func (v *Vec3) Div(other *Vec3) *Vec3 {
 	// Check for division by zero
-	if other.x == 0 || other.y == 0 || other.z == 0 {
+	if other.X == 0 || other.Y == 0 || other.Z == 0 {
 		fmt.Println("Error: Division by zero in vector components")
-		return &vec3{} // Return a zero vector as fallback
+		return &Vec3{} // Return a zero vector as fallback
 	}
-	return &vec3{
-		x: v.x / other.x,
-		y: v.y / other.y,
-		z: v.z / other.z,
+	return &Vec3{
+		X: v.X / other.X,
+		Y: v.Y / other.Y,
+		Z: v.Z / other.Z,
 	}
 }
 
-func Len3(v *vec3) float32 {
-	return float32(math.Sqrt(float64(v.x*v.x + v.y*v.y + v.z*v.z)))
+// Len3 calculates the length of a 3D vector
+func Len3(v *Vec3) float32 {
+	return float32(math.Sqrt(float64(v.X*v.X + v.Y*v.Y + v.Z*v.Z)))
 }
